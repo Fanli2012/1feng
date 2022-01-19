@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8" />
+<title>M4U8在线播放</title>
+<meta name="robots" content="noindex,nofollow" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+</head><body>
+<script>
+var secScript = document.createElement("script");
+secScript.setAttribute("type", "text/javascript");
+secScript.setAttribute("src", "https://cdn.jsdelivr.net/hls.js/latest/hls.min.js");
+document.body.insertBefore(secScript, document.body.lastChild);
+document.writeln('<video width="100%" id="video" height="' + '400' + '" controls autoplay></video>');
+setTimeout(function () {
+	if (Hls.isSupported()) {
+	  var video = document.getElementById('video');
+	  var hls = new Hls();
+	  hls.loadSource('https://v10.dious.cc/20220117/FRdaYyMn/index.m3u8');
+	  hls.attachMedia(video);
+	  hls.on(Hls.Events.MANIFEST_PARSED, function() {
+		video.play();
+	  });
+	} else {
+		console.log('不支持Hls');
+	}
+}, 1000);
+</script>
+</body></html>
